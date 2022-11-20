@@ -1,4 +1,4 @@
-# baseURL = "https://your_domain.com/"
+baseURL = "https://kostyakoz.github.io/t/"
 languageCode = "en"
 defaultContentLanguage = "en"
 
@@ -17,7 +17,7 @@ disableKinds = ["taxonomy", "term"]
     { email = "mailto:hello@your_domain.com" },
     { link = "https://link-to-some-website.com/" },
     { amazon = "https://www.amazon.com/hz/wishlist/ls/wishlist-id" },
-    # { apple = "https://www.apple.com" },
+    { apple = "https://www.apple.com" },
     # { codepen = "https://codepen.io/username" },
     # { dev = "https://dev.to/username" },
     # { discord = "https://discord.gg/invitecode" },
