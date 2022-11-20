@@ -1,10 +1,13 @@
-name: Test Build
+name: GitHub Pages
 
-on: [push]
+on:
+  push:
+    branches:
+      - stable
 
 jobs:
-  build:
-    name: Build Example Site
+  build-deploy:
+    name: Build and Deploy
     runs-on: ubuntu-20.04
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
@@ -22,4 +25,12 @@ jobs:
 
       - name: Build
         working-directory: ./exampleSite
-        run: hugo --minify --themesDir ../.. --baseURL https://jpanther.github.io/lynx/
+        run: hugo --minify --themesDir ../.. --baseURL https://kostyakoz.github.io/t/
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/stable' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./exampleSite/public
